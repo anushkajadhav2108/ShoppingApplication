@@ -1,0 +1,91 @@
+  
+ <body>
+  <div class="container register-box" style="max-width: 40%">
+    <div class="title">Add Product</div>
+    <form [formGroup]="AddProductForm">
+    <div class="main-user-info">
+
+        <div class="col">
+          <label>Product Name</label>
+          <input
+          formControlName="name"
+            type="text"
+            class="form-control"
+            placeholder="Product Name"
+          />
+      <span *ngIf="AddProductForm.hasError('required','name') && AddProductForm.controls['name'].dirty" style="color: red;">*ProductName is required</span>
+
+        </div>
+
+        <div class="col">
+          <label>Price</label>
+          <input
+            formControlName="price" 
+            type="text"
+            class="form-control"
+            placeholder="Price"
+          />
+      <span *ngIf="AddProductForm.hasError('required','price') && AddProductForm.controls['price'].dirty" style="color: red;">*Price is required</span>
+
+        </div>
+        
+        <div class="col">
+          <label>Color</label>
+          <input
+          formControlName="color"
+          type="text"
+          class="form-control" 
+          placeholder="Color"
+          />
+          <span *ngIf="AddProductForm.hasError('required','color') && AddProductForm.controls['color'].dirty" style="color: red;">*Color is required</span>
+          
+        </div>
+  
+
+      <div class="form-group">
+        <label>Category</label>
+        <input
+          formControlName="category"
+          type="text"
+          class="form-control"
+          placeholder="Category"
+        />
+      <span *ngIf="AddProductForm.hasError('required','category') && AddProductForm.controls['category'].dirty" style="color: red;">*Category is required</span>
+
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input
+          formControlName="description"
+          type="text"
+          class="form-control"
+          placeholder="Description"
+        />
+      <span *ngIf="AddProductForm.hasError('required','description') && AddProductForm.controls['description'].dirty" style="color: red;">*Description is required</span>
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="formFile" class="form-label">Image</label>
+          <input
+            formControlName="image"
+            type="file"
+            id="formFile"
+            class="form-control"
+            placeholder="Image"
+          />
+        </div>
+      </div>
+
+    <div class="add-btn">
+      <button (click)="createProduct()" [disabled]="AddProductForm.invalid"   type="submit" class="btn btn-primary">Add</button>
+    </div>
+
+    <div class="gotoview-btn">
+      <button (click)="gotToView()" [disabled]="AddProductForm.invalid"   type="submit" class="btn btn-primary">Go to view Product</button>
+    </div>
+    </div>
+  </form>
+  </div>
+</body>
+

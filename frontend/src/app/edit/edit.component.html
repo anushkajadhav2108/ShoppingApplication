@@ -1,0 +1,141 @@
+<body>
+  <div class="container register-box" style="max-width: 40%">
+    <div class="title">Update Product</div>
+    <form [formGroup]="editProductForm">
+      <div class="main-user-info">
+        <div class="col">
+          <label>Product Name</label>
+          <input
+            formControlName="name"
+            type="text"
+            class="form-control"
+            placeholder="Product Name"
+          />
+          <span
+            *ngIf="
+              editProductForm.hasError('required', 'name') &&
+              editProductForm.controls['name'].dirty
+            "
+            style="color: red"
+            >*ProductName is required</span
+          >
+        </div>
+
+        <div class="col">
+          <label>Price</label>
+          <input
+            formControlName="price"
+            type="text"
+            class="form-control"
+            placeholder="Price"
+          />
+          <span
+            *ngIf="
+              editProductForm.hasError('required', 'price') &&
+              editProductForm.controls['price'].dirty
+            "
+            style="color: red"
+            >*Price is required</span
+          >
+        </div>
+
+        <div class="col">
+          <label>Color</label>
+          <input
+            formControlName="color"
+            type="text"
+            class="form-control"
+            placeholder="Color"
+          />
+          <span
+            *ngIf="
+              editProductForm.hasError('required', 'color') &&
+              editProductForm.controls['color'].dirty
+            "
+            style="color: red"
+            >*Color is required</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <input
+            formControlName="category"
+            type="text"
+            class="form-control"
+            placeholder="Category"
+          />
+          <span
+            *ngIf="
+              editProductForm.hasError('required', 'category') &&
+              editProductForm.controls['category'].dirty
+            "
+            style="color: red"
+            >*Category is required</span
+          >
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input
+            formControlName="description"
+            type="text"
+            class="form-control"
+            placeholder="Description"
+          />
+          <span
+            *ngIf="
+              editProductForm.hasError('required', 'description') &&
+              editProductForm.controls['description'].dirty
+            "
+            style="color: red"
+            >*Description is required</span
+          >
+        </div>
+        <div class="row">
+          <div class="col">
+            <label>Image</label>
+            <input
+              formControlName="image"
+              type="file"
+              id="formFile"
+              class="form-control"
+              placeholder="Image"
+            />
+          </div>
+        </div>
+
+        <div class="update-btn">
+          <button
+            (click)="updateProduct()"
+            [disabled]="editProductForm.invalid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Update
+          </button>
+        </div>
+
+        <div class="gotoview-btn">
+          <button
+            (click)="gotToView()"
+            [disabled]="editProductForm.invalid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Go to view Product
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+<!-- Product Name <input type="text" [(ngModel)]="updateProd.name"><br>
+Product Price <input type="text" [(ngModel)]="updateProd.price"><br>
+Product Color <input type="text" [(ngModel)]="updateProd.color"><br>
+Product Category <input type="text" [(ngModel)] = "updateProd.category"><br>
+Product Description <input type="text" [(ngModel)]="updateProd.description"><br>
+Product Image <input type="text" [(ngModel)]="updateProd.image"><br>
+
+<button (click)="updateProduct()">Update</button>
+<button (click)="gotToView()">Go to view Product</button> -->
